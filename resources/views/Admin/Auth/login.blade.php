@@ -47,7 +47,15 @@
         </p>
         <form class="form-login" action="{{ URL::asset('admin/auth/login') }}" method="post">
             {!! csrf_field() !!}
-            @if (count($errors) > 0)
+
+            @if (Session::has('success'))
+                <div class="errorHandler alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+
+
+        @if (count($errors) > 0)
                 <div class="errorHandler alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)

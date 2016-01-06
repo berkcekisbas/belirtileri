@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use Session;
+use App;
+use Illuminate\Support\Facades\Lang;
 
 class AuthController extends Controller
 {
@@ -59,14 +62,15 @@ class AuthController extends Controller
 
     }
 
-    public function Logout()
+    public function Logout(Request $request)
     {
-
+        if(Auth::guard('admin')->check())
+          {
             Auth::guard('admin')->logout();
 
+            return redirect('admin/auth/login')->with('success','Başarıyla Çıkış Yapıldı.');
+        }
 
         return redirect('admin/auth/login');
-
-
     }
 }

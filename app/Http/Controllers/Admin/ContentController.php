@@ -14,4 +14,14 @@ class ContentController extends Controller
         return view('Admin.Content.list');
     }
 
+    public function getCreate()
+    {
+        return view('Admin.Content.create');
+    }
+
+    public function postCreate()
+    {
+        return redirect('admin/content/create')->withInput();
+    }
+
 }
