@@ -91,19 +91,9 @@ var FormElements = function () {
     return {
         //main function to initiate template pages
         init: function () {
-            runInputLimiter();
-            runAutosize();
-            runSelect2();
-            runMaskInput();
-            runMaskMoney();
-            runDatePicker();
-            runTimePicker();
-            runDateRangePicker();
-            runColorPicker();
-            runColorPalette();
+           
             runTagsInput();
-            runSummerNote();
-            runCKEditor();
+           
         }
     };
 }();

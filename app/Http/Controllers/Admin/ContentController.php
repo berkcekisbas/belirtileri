@@ -2,16 +2,34 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Content;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Cache;
 
 class ContentController extends Controller
 {
     public function getList()
     {
-        return view('Admin.Content.list');
+
+        /* Ana Sayfa Kısmında Kullanılabilir...
+
+        if(!isset($_GET['page'])) $_GET['page'] =1;
+
+        $contents = Cache::remember('contents-'.$_GET['page'], 60, function()
+        {
+            //return Content::paginate(2);
+        });
+
+        */
+        $data = Content::paginate(5);
+
+        return view('Admin.Content.list', ['contents' => $data]);
+
+
     }
 
     public function getCreate()
@@ -19,9 +37,29 @@ class ContentController extends Controller
         return view('Admin.Content.create');
     }
 
-    public function postCreate()
+    public function postCreate(Request $request)
     {
-        return redirect('admin/content/create')->withInput();
+        // tags diziye çevriliyor.
+
+        $tags  = explode(",",$request->tags);
+
+        $content = new Content();
+        $content->title = $request->title;
+        $content->seo = $request->seo;
+        $content->spot = $request->spot;
+        $content->content = $request->content;
+        $content->status = $request->status;
+        $content->tags = json_encode($tags);
+        $content->save();
+
+        return $content->id;
+
+        //return redirect('admin/content/update')->withInput();
+    }
+
+    public function getUpdate(Request $request)
+    {
+        return json_decode(old('tags'));
     }
 
 }

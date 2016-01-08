@@ -36,7 +36,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <i class="fa fa-external-link-square"></i>
-                                Basic table
+                                İçerikler
 
                             </div>
                             <div class="panel-body">
@@ -44,26 +44,48 @@
                                     <thead>
                                     <tr>
                                         <th class="center">#</th>
-                                        <th>Browser</th>
-                                        <th class="hidden-xs">Creator</th>
-                                        <th>Software license</th>
-                                        <th class="hidden-xs">Current layout engine</th>
+                                        <th>Başlık</th>
+                                        <th>Seo Url</th>
+                                        <th>Durum</th>
+                                        <th>Etiketler</th>
+                                        <th>Eklenme Tarihi</th>
+                                        <th>Sayfa Gösterimi</th>
                                         <th></th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
 
 
-
+                                    @foreach ($contents as $content)
                                     <tr>
-                                        <td class="center">5</td>
-                                        <td>Opera</td>
-                                        <td class="hidden-xs">Opera Software</td>
+                                        <td class="center">{{ $content->id }}</td>
+                                        <td>{{ $content->title }}</td>
+                                        <td>{{ $content->seo }}</td>
                                         <td>
-                                            <a href="#" rel="nofollow" target="_blank">
-                                                Proprietary
-                                            </a></td>
-                                        <td class="hidden-xs">Presto</td>
+                                            @if($content->title == 0)
+                                                <span class="label label-danger"> Pasif</span>
+                                            @else
+                                                <span class="label label-success"> Aktif</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <ul class="list-unstyled">
+                                            @foreach(json_decode($content->tags,true) as $xxx)
+                                                <li><p>
+                                                        <span class="label label-info"> {{ $xxx }}</span>
+
+                                                    </p>
+                                                </li>
+
+
+                                                @endforeach
+                                            </ul>
+                                            </td>
+                                        <td>
+Eklenme Tarihi
+                                        </td>
+                                        <td><span class="badge badge-success"> 2</span></td>
                                         <td class="center">
                                             <div class="visible-md visible-lg hidden-sm hidden-xs">
                                                 <a href="#" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
@@ -95,36 +117,16 @@
                                                 </div>
                                             </div></td>
                                     </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
+
+
+
                                 <div class="pull-right">
-                                    <ul class="pagination pagination">
-                                        <li>
-                                            <a href="#">
-                                                Prev
-                                            </a>
-                                        </li>
-                                        <li  class="active">
-                                            <a href="#">
-                                                1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                3
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Next
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    {!! $contents->links() !!}
+
+
                                 </div>
                             </div>
 

@@ -20,9 +20,6 @@
     <!-- start: MAIN CSS -->
     @yield('css')
     <!-- end: MAIN CSS -->
-    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
-    <link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css">
-    <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <!-- end: HEAD -->

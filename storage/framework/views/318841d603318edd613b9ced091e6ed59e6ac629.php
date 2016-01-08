@@ -48,7 +48,16 @@
         <form class="form-login" action="<?php echo e(URL::asset('admin/auth/login')); ?>" method="post">
             <?php echo csrf_field(); ?>
 
-            <?php if(count($errors) > 0): ?>
+
+            <?php if(Session::has('success')): ?>
+                <div class="errorHandler alert alert-success">
+                    <?php echo e(Session::get('success')); ?>
+
+                </div>
+            <?php endif; ?>
+
+
+        <?php if(count($errors) > 0): ?>
                 <div class="errorHandler alert alert-danger">
                     <ul>
                         <?php foreach($errors->all() as $error): ?>
