@@ -83,15 +83,26 @@
                                 Yeni İçerik
                             </div>
                             <div class="panel-body">
+
                                 <form role="form" action="{{ asset('admin/content/create') }}" method="post" class="form-horizontal">
                                     {!! csrf_field() !!}
+
+                                    @if (count($errors) > 0)
+                                        <div class="errorHandler alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" for="form-field-1">
                                             Başlık :
                                         </label>
                                         <div class="col-sm-4">
-                                            <input type="text" placeholder="Başlık" id="title" name="title" value="{{ old('baslik') }}" class="form-control">
+                                            <input type="text" placeholder="Başlık" id="title" name="title" value="{{ old('title') }}" class="form-control">
                                         </div>
                                         <label class="col-sm-1 control-label" for="form-field-1">
                                             Seo Url :
@@ -117,7 +128,7 @@
                                             İçerik :
                                         </label>
                                         <div class="col-sm-9">
-                                            <textarea placeholder="İçerik" id="content" name="content" rows="5" class="form-control content">{{ old('spot') }}</textarea>
+                                            <textarea placeholder="İçerik" id="content" name="content" rows="5" class="form-control content">{{ old('content') }}</textarea>
                                         </div>
                                     </div>
 
@@ -127,8 +138,8 @@
                                         </label>
                                         <div class="col-sm-2">
                                             <select name="status" id="status" class="form-control" >
-                                                <option value="0">Pasif</option>
-                                                <option value="1">Aktif</option>
+                                                <option @if (old('status') == '0') selected = "selected" @endif value="0">Pasif</option>
+                                                <option @if (old('status') == '1') selected = "selected" @endif value="1">Aktif</option>
                                             </select>
                                         </div>
                                     </div>
@@ -136,11 +147,20 @@
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" for="form-field-2">
-                                            Durum :
+                                            Tags :
                                         </label>
-                                        <div class="col-sm-8">
-                                            <input type="text" placeholder="tag1,tag2,tag3,tag4,tag5" id="tags" name="tags" value="{{ old('seo') }}" class="form-control">
+                                        <div class="col-sm-9">
+                                            <input type="text" placeholder="tag1,tag2,tag3,tag4,tag5" id="tags" name="tags" value="{{ old('tags') }}" class="form-control">
 
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="form-field-2">
+                                            Description :
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" placeholder="Description" id="description" name="description" value="{{ old('description') }}" class="form-control">
                                         </div>
                                     </div>
 

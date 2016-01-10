@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
+use Validator;
+use Illuminate\Support\Facades\Config;
 
 class ContentController extends Controller
 {
@@ -25,7 +27,8 @@ class ContentController extends Controller
         });
 
         */
-        $data = Content::paginate(5);
+
+        $data = Content::paginate(config('settings.content_list_number_of_element'));
 
         return view('Admin.Content.list', ['contents' => $data]);
 
@@ -39,6 +42,19 @@ class ContentController extends Controller
 
     public function postCreate(Request $request)
     {
+
+        $validator = Validator::make($request->all(),Content::$rules,Content::$messages);
+
+        if ($validator->fails()) {
+            return redirect('admin/content/create')->withErrors($validator)->withInput();
+        }
+
+
+        /* bu validate kontrolü ile return kullanmadan postun gönderildiği sayfaya dönülebilir. Bu Şekilde de kullanılabilir.
+        $this->validate($request, Content::$rules,Content::$messages)->withInput();
+        */
+
+
         // tags diziye çevriliyor.
 
         $tags  = explode(",",$request->tags);
@@ -50,16 +66,28 @@ class ContentController extends Controller
         $content->content = $request->content;
         $content->status = $request->status;
         $content->tags = json_encode($tags);
+        $content->description = $request->description;
+
         $content->save();
 
-        return $content->id;
 
-        //return redirect('admin/content/update')->withInput();
+        return redirect('admin/content/list')->with('success','İçeirk Başarıyla Eklendi');
     }
 
     public function getUpdate(Request $request)
     {
         return json_decode(old('tags'));
+    }
+
+    public function getDelete($id)
+    {
+        Content::where('id',$id)->delete();
+        return redirect('admin/content/list')->with('success','İçeirk Başarıyla Silindi');
+    }
+
+    public function getActive(Request $request)
+    {
+        return "Active Ok ".$request;
     }
 
 }

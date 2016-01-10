@@ -19,7 +19,9 @@ class CreateContentsTable extends Migration
             $table->text('spot');
             $table->text('content');
             $table->integer('status');
-            $table->text('tags');
+            $table->string('tags');
+            $table->text('description');
+            $table->integer('pageview');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateContentsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('contents');
     }
 }
