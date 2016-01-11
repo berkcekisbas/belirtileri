@@ -4,12 +4,22 @@
 // key oluşturmak için web middle ware altında tutuyoruz.
 // prefix oalrak admin veriyoruz.
 
+
+
 Route::group(['prefix' => 'admin','middleware' => ['web']], function () {
 
+    Route::get('/', function () {
+
+        return redirect('admin/dashboard');
+    });
+
+
+    Route::get('admin', 'Admin\AuthController@login');
     Route::get('auth/login', 'Admin\AuthController@login');
     Route::post('auth/login', 'Admin\AuthController@Authenticate');
     Route::get('auth/logout', 'Admin\AuthController@logout');
     Route::get('admin/dashboard', 'Admin\AuthController@dashboard');
+
 });
 
 
@@ -23,6 +33,8 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth:admin']], functio
 
     Route::get('dashboard', 'Admin\AuthController@dashboard');
     Route::controller('content', 'Admin\ContentController');
+    Route::get('settings', 'Admin\SettingsController@settings');
+
 
 });
 
@@ -43,17 +55,3 @@ Route::get('admin', function () {
     return "Admin";
 });
 */
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
-
-Route::group(['middleware' => ['web']], function () {
-    //
-});

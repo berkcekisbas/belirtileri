@@ -22,6 +22,7 @@ class CreateContentsTable extends Migration
             $table->string('tags');
             $table->text('description');
             $table->integer('pageview');
+            $table->string('image');
             $table->timestamps();
         });
     }

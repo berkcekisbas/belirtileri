@@ -100,7 +100,7 @@
                                         <td class="center">
                                             <div class="visible-md visible-lg hidden-sm hidden-xs">
                                                 <a href="#" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Güncelle"><i class="fa fa-edit"></i></a>
-                                                <a href="#" class="btn btn-xs btn-green tooltips" data-placement="top" data-original-title="Aktifleştir"><i class="fa fa-share"></i></a>
+                                                <a href="#" class="btn btn-xs btn-green tooltips" data-placement="top" data-original-title="Aktifleştir"><i class="fa fa-play"></i></a>
                                                 <a href="{{ URL::asset('admin/content/delete/'.$content->id) }}" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Sil"><i class="fa fa-times fa fa-white"></i></a>
                                             </div>
                                             <div class="visible-xs visible-sm hidden-md hidden-lg">

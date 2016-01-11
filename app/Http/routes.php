@@ -11,25 +11,15 @@
 |
 */
 
-Route::group(['prefix' => 'site','middleware' => ['web']], function () {
-
-    Route::get('auth/login', 'Site\AuthController@login');
-    Route::post('auth/login', 'Site\AuthController@Authenticate');
-    Route::get('auth/logout', 'Site\AuthController@logout');
-    Route::get('admin/dashboard', 'Site\AuthController@dashboard');
-});
 
 
+Route::group(['middleware' => ['web']], function () {
 
-Route::group(['prefix' => 'site','middleware' => ['web','auth']], function () {
-
-
-    Route::get('dashboard', 'Site\AuthController@dashboard');
-
+    Route::get('/', 'Site\MainController@index');
 
 });
 
-Route::get('site/{slug}', function () {
+Route::get('{slug}', function () {
 
     return "404 Error";
 

@@ -30,11 +30,25 @@
                 <!-- start: PAGE CONTENT -->
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- start: BASIC TABLE PANEL -->
+                        <?php if(Session::has('success')): ?>
+                            <div class="errorHandler alert alert-success">
+                                <?php echo e(Session::get('success')); ?>
+
+                            </div>
+                        <?php endif; ?>
+                            <!-- start: BASIC TABLE PANEL -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <i class="fa fa-external-link-square"></i>
                                 İçerikler
+                                <div class="panel-tools">
+
+                                    <a data-original-title="Yeni İçeirik" data-placement="top" class="tooltips btn btn-xs btn-link" href="<?php echo e(URL::asset("admin/content/create")); ?>">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+
+                                </div>
+
 
                             </div>
                             <div class="panel-body">
@@ -80,15 +94,13 @@
                                                 <?php endforeach; ?>
                                             </ul>
                                             </td>
-                                        <td>
-Eklenme Tarihi
-                                        </td>
-                                        <td><span class="badge badge-success"> 2</span></td>
+                                        <td><?php echo e(date('d-m-Y',strtotime($content->created_at))); ?></td>
+                                        <td><span class="badge badge-success"> <?php echo e($content->pageview); ?></span></td>
                                         <td class="center">
                                             <div class="visible-md visible-lg hidden-sm hidden-xs">
-                                                <a href="#" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-edit"></i></a>
-                                                <a href="#" class="btn btn-xs btn-green tooltips" data-placement="top" data-original-title="Share"><i class="fa fa-share"></i></a>
-                                                <a href="#" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                                <a href="#" class="btn btn-xs btn-teal tooltips" data-placement="top" data-original-title="Güncelle"><i class="fa fa-edit"></i></a>
+                                                <a href="#" class="btn btn-xs btn-green tooltips" data-placement="top" data-original-title="Aktifleştir"><i class="fa fa-play"></i></a>
+                                                <a href="<?php echo e(URL::asset('admin/content/delete/'.$content->id)); ?>" class="btn btn-xs btn-bricky tooltips" data-placement="top" data-original-title="Sil"><i class="fa fa-times fa fa-white"></i></a>
                                             </div>
                                             <div class="visible-xs visible-sm hidden-md hidden-lg">
                                                 <div class="btn-group">

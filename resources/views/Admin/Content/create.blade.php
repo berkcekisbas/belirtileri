@@ -67,7 +67,7 @@
                             </li>
                         </ol>
                         <div class="page-header">
-                            <h1>Yeni İçerik</h1>
+                            <h1>Yeni içerik</h1>
                         </div>
                         <!-- end: PAGE TITLE & BREADCRUMB -->
                     </div>
@@ -84,7 +84,7 @@
                             </div>
                             <div class="panel-body">
 
-                                <form role="form" action="{{ asset('admin/content/create') }}" method="post" class="form-horizontal">
+                                <form role="form" enctype="multipart/form-data" action="{{ asset('admin/content/create') }}" method="post" class="form-horizontal">
                                     {!! csrf_field() !!}
 
                                     @if (count($errors) > 0)
@@ -96,6 +96,19 @@
                                             </ul>
                                         </div>
                                     @endif
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="form-field-1">
+                                            Resim :
+                                        </label>
+                                        <div class="col-sm-4">
+                                            <input type="file" placeholder="Resim" id="image" name="image" value="{{ old('image') }}">
+                                            <span class="help-block"><i class="fa fa-info-circle"></i> Resim Boyutu 200 X 200 Olmalıdır.</span>
+                                        </div>
+
+
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" for="form-field-1">

@@ -59,7 +59,21 @@ class ContentController extends Controller
 
         $tags  = explode(",",$request->tags);
 
+
         $content = new Content();
+
+
+
+        if ($request->hasFile('image')) {
+            $imageName = $request->seo.'.'. $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(base_path() . '/public/uploads/', $imageName);
+
+            $content->image = $imageName;
+        }
+
+
+
+
         $content->title = $request->title;
         $content->seo = $request->seo;
         $content->spot = $request->spot;
@@ -69,6 +83,8 @@ class ContentController extends Controller
         $content->description = $request->description;
 
         $content->save();
+
+
 
 
         return redirect('admin/content/list')->with('success','İçeirk Başarıyla Eklendi');

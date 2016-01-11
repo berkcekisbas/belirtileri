@@ -16,7 +16,10 @@ class Content extends Model
     'content.required'     => 'Lütfen İçerik Girin !',
     'status.required'      => 'Lütfen Durum Bilgisi Girin !',
     'tags.required'        => 'Lütfen Etikletleri Girin',
-    'description.required' => 'Lütfen Description Girin !'
+    'description.required' => 'Lütfen Description Girin !',
+    'image.mimes'          => 'Lütfen Geçerli Bir Resim Ekleyin !',
+    //'image.required'       => 'Lütfen Description Girin !',
+    'image.max'            => 'Resim Büyüklüğü 2.5 Mb ı Geçemez !',
     );
 
     public static $rules = array(
@@ -26,7 +29,8 @@ class Content extends Model
     'content'     => 'required',
     'status'      => 'required',
     'tags'        => 'required',
-    'description' => 'required'
+    'description' => 'required',
+    'image' => 'mimes:jpeg,jpeg,png|max:2500'
     );
 
 }
