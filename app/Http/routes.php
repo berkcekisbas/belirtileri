@@ -17,13 +17,14 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'Site\MainController@index');
 
+    Route::get('{id}', 'Site\MainController@detail');
+
+
+
+
 });
 
-Route::get('{slug}', function () {
 
-    return "404 Error";
-
-});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -35,6 +36,3 @@ Route::get('{slug}', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});

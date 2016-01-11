@@ -21,8 +21,11 @@ class MainController extends BaseController
             return Content::paginate(10);
         });
 
+        return view('Site.main',['contents' => $contents]);
+    }
 
-
-        return view('Site\main',['contents' => $contents]);
+    public function detail($id)
+    {
+        return $id;
     }
 }
