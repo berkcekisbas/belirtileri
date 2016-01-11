@@ -26,6 +26,6 @@ class MainController extends BaseController
 
     public function detail($id)
     {
-        return $id;
+        return view('Site.detail');
     }
 }
