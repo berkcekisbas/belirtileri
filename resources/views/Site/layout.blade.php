@@ -25,7 +25,7 @@
 <!--header-->
 <div class="header">
     <div class="container">
-        <a class="no-padding col-md-4" href="{{ asset('/') }}"><img class="logo" src="img/vevona.png" alt=""></a>
+        <a class="no-padding col-md-4" href="http://www.{{ config('settings.domain') }}"><img class="logo" src="img/vevona.png" alt=""></a>
         <div class="col-md-8">
             <ul class="rrssb-buttons">
                 <li class="rrssb-facebook">

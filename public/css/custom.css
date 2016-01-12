@@ -115,12 +115,23 @@ td a {
 
 @media screen and (min-width: 993px) {
     td a {
-        font-size: 13px;
+font-size: 13px;
     }
 }
 td a:hover {
     color: #ED145B;
     text-decoration: none;
+    border-bottom: 5px;
+}
+.pic {
+    background-color: #F7F7F7;
+    min-height: 267px;
+    padding: 20px;
+
+}
+.detay {
+    margin-bottom: 20px;
+    background-color: #F7F7F7;
 }
 .detay a{
     color: #000;
@@ -139,9 +150,13 @@ td a:hover {
     border-radius: 5px;
     background-clip: padding-box;
     padding:0 20px 20px 20px;
-    min-height:340px;
     margin-right: 15px;
     margin-left: 15px;
+}
+.boxed{
+    border-left:1px solid #ccc;
+    height:auto;
+
 }
 
 
@@ -172,7 +187,6 @@ td a:hover {
 
 
 .well-wrapper {
-    background-color: #f7f7f7;
     margin-bottom: 50px;
 
 }
@@ -184,7 +198,6 @@ td a:hover {
     margin-top: 10px;
     border:3px solid #FFFFFF;
 }
-
 
 .post-more {
     background-color: #EEE;
@@ -374,4 +387,8 @@ td a:hover {
     .row-banner{
         margin-top:20px;
     }
+}
+
+.panel-heading-box {
+    background-color: #F7F7F7;
 }

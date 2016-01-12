@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Content;
 use Illuminate\Http\Request;
 use Cache;
-
-
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -18,14 +17,11 @@ class MainController extends BaseController
 
         $contents = Cache::remember('contents-'.$_GET['page'], 60, function()
         {
-            return Content::paginate(10);
+            $data =  Content::paginate(5);
+            $data->setPath('/');
+            return $data;
         });
 
         return view('Site.main',['contents' => $contents]);
-    }
-
-    public function detail($id)
-    {
-        return view('Site.detail');
     }
 }

@@ -1,7 +1,7 @@
 @extends('Site.layout')
 
 @section('content')
-<!--search-->
+        <!--search-->
 
 <div class="container">
     <div class="row">
@@ -29,14 +29,15 @@
             </div>
         </div>
     </div>
-</div></div>
+</div>
+</div>
 <!--sidebar-->
 <div class="sidebar">
     <div class="container">
         <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <span class="glyphicon glyphicon-list-alt"></span><b>Popüler Kategoriler</b></div>
+                <div class="panel-heading"><span class="glyphicon glyphicon-list-alt"></span><b>Popüler Kategoriler</b>
+                </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12">
@@ -121,49 +122,49 @@
             </div>
         </div>
         <div class="well-wrapper col-md-9">
-            @foreach($contents as $content)
-                <div class="box-wrapper">
-                <div class="pic no-padding col-md-4">
-                    @if($content->image == null)
-                        <img src="{{ asset('uploads/nophoto.jpg') }}" alt="">
-                    @else
-                        <img src="{{ asset('uploads/'.$content->image) }}" alt="">
-                    @endif
-                </div>
-                <div class="detay col-md-8">
-                    <h2><a href="detay.php"> Baş Ağrısı Belirtileri</a></h2>
+            <div class="middlePage">
+                @foreach($contents as $content)
+                    <div class="page-header">
+                    <div class="panel panel-info">
+                        <div class="panel-heading-box">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="resim col-md-5">
+                                        @if($content->image == "")
+                                            <img src="{{ asset('uploads/nophoto.jpg') }}" alt="">
+                                        @else
+                                            <img src="{{ asset("uploads/".$content->image) }}" alt="{{ $content->seo }}">
+                                        @endif
+                                    </div>
+                                    <div class="col-md-7 boxed">
+                                        <h3>
+                                            <a href="http://{{ $content->seo }}.{{ config('settings.domain') }}"> {{ $content->title }}</a>
+                                        </h3>
+                                        <p>
+                                            {{ $content->spot }}
 
-                    <p>İnsanoğlu yaşamı boyunca birçok hastalığın tehdidi altında kalıyor. Bazı
-                        hastalıklar yaş ilerledikçe kaçınılmaz oluyor. Kalp, şeker, tansiyon derken ömürler geçiyor. Bir de
-                        hiç
-                        ummadığımız anda ortaya çıkan tedavisi mümkün olmayan ve hayatı kabus haline getirebilen hastalıklar
-                        var.
-                        Halk arasında “aft” olarak bilinen, bir diğer adı “ağız ülseri” olan ağız içi yaraları aslında bir
-                        doku
-                        bozukluğudur. Bu doku bozukluğunun tam anlamıyla nedeni bilinmemekle birlikte farklı kaynakları
-                        olabileceği bilinmektedir. Halk arasında “aft” olarak bilinen, bir diğer adı “ağız ülseri” olan ağız
-                        içi yaraları aslında bir doku
-                        bozukluğudur.</p>
+                                        </p>
+                                        <div class="post-more pull-right">
+                                            <span class="read-more">
+                                                <a href="http://{{ $content->seo }}.{{ config('settings.domain') }}" title="Devamını Oku">Devamını Oku <i class="fa fa-arrow-right"></i></a>
+                                            </span>
+                                        </div>
+                                        <div class="post-more pull-right">
+                                            <span class="read-more"><i class="fa fa-user"></i> {{ $content->pageview }} kere okundu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="post-more pull-right">
-                        <span class="read-more">
-                            <a href="detay.php" title="Devamını Oku">Devamını Oku <i class="fa fa-arrow-right"></i></a>
-                        </span>
-                    </div>
-                    <div class="post-more pull-right">
-                        <span class="read-more">
-                                <i class="fa fa-user"></i> {{ $content->pageview }} kere okundu</span>
+                        </div>
                     </div>
                 </div>
+                @endforeach
+
+                <nav class="no-padding col-md-offset-3 col-md-9">
+                    {!! $contents->links() !!}
+                </nav>
             </div>
-            @endforeach
         </div>
-
-
-        <nav class="no-padding col-md-offset-3 col-md-9">
-            {!! $contents->links() !!}
-        </nav>
-
-    </div>
-</div>
+        <!--footer-->
 @endsection
