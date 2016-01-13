@@ -3,10 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 class Layout
 {
-  public function testq()
+  public static function popular()
   {
-      return "test";
+      $populardata = Cache::remember('popular', 60, function() {
+
+          $data = Content::take(15)->orderBy('pageview', 'desc')->get();
+          return $data;
+
+      });
+
+      return $populardata;
   }
 }

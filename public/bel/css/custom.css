@@ -1,0 +1,386 @@
+body{
+    overflow-x: hidden;
+}
+
+.top-bg {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    background: #eaeaea none repeat scroll 0% 0%;
+    padding-top: 10px;
+}
+
+.top-bg{
+    color: #000;
+
+}
+.no-padding{
+    padding: 0;
+}
+.banner-wrapper{
+    margin-top:-15px;
+
+}
+
+#custom-search-input{
+    margin-top:45px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+.widget {
+    font: 300 16px/1.5em "Trebuchet MS",Tahoma,sans-serif;
+    color: #353535;
+    background-color: #FFF;
+    border-radius: 1px;
+    margin: 0px 0px 30px;
+}.widget h3 {
+     font: 19px/1.2em Arial,sans-serif;
+     color: #0A0A0A;
+     border-bottom: 1px solid #E6E6E6;
+ }
+.widget h3 {
+    margin: 0px 0px 0.8em;
+    padding: 0px 0px 0.8em;
+}
+
+
+.glyphicon
+{
+    margin-right:4px !important; /*override*/
+}
+
+.pagination .glyphicon
+{
+    margin-right:0px !important; /*override*/
+}
+
+.pagination a
+{
+    color:#555;
+}
+.panel{
+    margin-left:-16px;
+    margin-bottom:20px;
+}
+.panel ul
+{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+.news-item
+{
+    padding:4px 4px;
+    margin:0px;
+    border-bottom:1px solid #a6a6a6;
+}
+.sidebar{
+    margin-top:30px
+}
+td{
+    padding-bottom: 10px;
+}
+td a {
+    color: #000;
+    margin-left:15px;
+}
+
+@media screen and (min-width: 993px) {
+    td a {
+font-size: 13px;
+    }
+}
+td a:hover {
+    color: #ED145B;
+    text-decoration: none;
+    border-bottom: 5px;
+}
+.pic {
+    background-color: #F7F7F7;
+    min-height: 267px;
+    padding: 20px;
+
+}
+.detay {
+    margin-bottom: 20px;
+    background-color: #F7F7F7;
+}
+.detay a{
+    color: #000;
+}
+.detay a:hover{
+    color: #ED145B;
+    text-decoration: none;
+}
+
+.box {
+    background:#fff;
+    transition:all 0.2s ease;
+    border:2px dashed #dadada;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-clip: padding-box;
+    padding:0 20px 20px 20px;
+    max-height:280px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+
+
+.box span.box-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.box .box-content {
+    padding: 16px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+}
+.box .box-content p {
+    color:#515c66;
+    text-transform:none;
+    text-align: justify;
+}
+
+.box-content h1{
+    text-align: justify;
+}
+
+
+
+.well-wrapper {
+    margin-bottom: 50px;
+
+}
+.well-wrapper:last-child {
+    margin-bottom: 10px !important;
+
+}
+.pic img{
+    margin-top: 10px;
+    border:3px solid #FFFFFF;
+}
+
+.post-more {
+    background-color: #EEE;
+    border: medium none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 0px 0px #888;
+    box-sizing: border-box;
+    color: #FFF !important;
+    cursor: pointer;
+    display: inline !important;
+    font-family: inherit;
+    font-size: 0.75em;
+    font-weight: 200;
+    line-height: 1.618em;
+    overflow: visible;
+    padding: 0.327em 1em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: auto;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+.read-more{
+    color: #000;
+}
+
+#footer-widgets {
+    border-top: 1px solid #E6E6E6;
+    padding: 10px 0px;
+    clear: both;
+}
+.col-full {
+    width: auto;
+}
+#footer-widgets.col-3 .block {
+    width: 30.75%;
+}
+#footer-widgets .block {
+    margin-right: 3.8%;
+    float: left;
+}
+#footer-widgets .block {
+    padding-top: 20px;
+}
+
+.widget {
+    color: #353535;
+    background-color: #FFF;
+    border-radius: 1px;
+    margin: 0px 0px 30px;
+}
+.widget h3 {
+    font: 19px/1.2em Arial,sans-serif;
+    color: #0A0A0A;
+    border-bottom: 1px solid #E6E6E6;
+    margin: 0px 0px 0.8em;
+    padding: 0px 0px 0.8em;
+}
+.widget p, .widget .textwidget {
+    font: 300 16px/1.5em "Trebuchet MS",Tahoma,sans-serif;
+    color: #353535;
+}
+#footer {
+    border-width: 1px 0px 0px;
+    border-style: solid;
+    border-color: #DBDBDB -moz-use-text-color -moz-use-text-color;
+    border-radius: 1px;
+    padding: 20px 0px;
+}
+#footer, #footer p {
+    font: 300 12px/1.4em Arial,sans-serif;
+    color: #999;
+}
+
+.main-wrapper p {
+    text-align: justify;
+}
+
+.alert-message
+{
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+.alert-message h4
+{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.alert-message p:last-child
+{
+    margin-bottom: 0;
+}
+.alert-message code
+{
+    background-color: #fff;
+    border-radius: 3px;
+}
+.alert-message-success
+{
+    background-color: #F4FDF0;
+    border-color: #3C763D;
+}
+.alert-message-success h4
+{
+    color: #3C763D;
+}
+.alert-message-danger
+{
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+.alert-message-danger h4
+{
+    color: #d9534f;
+}
+.alert-message-warning
+{
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+.alert-message-warning h4
+{
+    color: #f0ad4e;
+}
+.alert-message-info
+{
+    background-color: #f4f8fa;
+    border-color: #5bc0de;
+}
+.alert-message-info h4
+{
+    color: #5bc0de;
+}
+.alert-message-default
+{
+    background-color: #EEE;
+    border-color: #B4B4B4;
+}
+.alert-message-default h4
+{
+    color: #000;
+}
+.alert-message-notice
+{
+    background-color: #FCFCDD;
+    border-color: #BDBD89;
+}
+.alert-message-notice h4
+{
+    color: #444;
+}
+
+.stars li {
+    list-style-type: none;
+}
+.tags{
+    margin-top:30px;
+}
+
+.post-entries {
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 65px;
+}
+.fl {
+    float: left;
+}
+.post-entries a:link, .post-entries a:visited{
+    font-size: 0.9em;
+    color: #888;
+}
+.post-entries a:hover{
+    color: #ED145B;
+    text-decoration: none;
+}
+.fr {
+    float: right;
+}
+
+
+@media screen and (max-width: 993px) {
+    .row-banner{
+        margin-top:20px;
+    }
+}

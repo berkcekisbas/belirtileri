@@ -15,7 +15,7 @@
 
 
 
-Route::group(['domain' => 'www.belirtileri.com.tr'], function () {
+Route::group(['domain' => 'www.'.config('settings.domain')], function () {
 
 
     Route::get('/', 'Site\MainController@index');
@@ -25,7 +25,7 @@ Route::group(['domain' => 'www.belirtileri.com.tr'], function () {
 
 
 
-Route::group(['domain' => '{id}.belirtileri.com.tr'], function () {
+Route::group(['domain' => '{id}.'.config('settings.domain')], function () {
 
 
     Route::get('/', function ($id) {
@@ -50,7 +50,7 @@ Route::group(['domain' => '{id}.belirtileri.com.tr'], function () {
             }
         }
 
-        return view('Site.detail',['content' => $detail]);
+        return view('Site.detail',['content' => $detail,'popular' => \App\Layout::popular()]);
 
     });
 });

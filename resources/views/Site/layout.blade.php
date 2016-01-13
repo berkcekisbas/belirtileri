@@ -162,14 +162,10 @@
                 <div class="widget">
                     <h3>Popüler Yazılar</h3>
                     <ul>
-                        <li><a href="#">Mide Üşütmesi Belirtileri</a></li>
-                        <li><a href="#">Kolit Belirtileri ve Tedavisi</a></li>
-                        <li><a href="#">Ağız Yarasına Ne İyi Gelir?</a></li>
-                        <li><a href="#">Karaciğer Yağlanmasına Ne İyi Gelir?</a></li>
-                        <li><a href="#">Hazımsızlık Belirtileri ve Tedavisi</a></li>
-                        <li><a href="#">Tetanos Belirtileri Nelerdir?</a></li>
-                        <li><a href="#">Kalsiyum Eksikliği</a></li>
-                        <li><a href="#">D Vitamini Eksikliği Belirtileri Nelerdir?</a></li>
+                        @foreach($popular as $item)
+                        <li><a href="http://{{$item->seo.".".config('settings.domain')}}">{{ $item->title }} </a></li>
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
